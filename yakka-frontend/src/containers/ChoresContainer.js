@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Chores from '../components/Chores'
 
 class ChoresContainer extends Component {
     
     render() {
         return (
             <div>
-                
+                <Chores chores={this.props.chores}/>
             </div>
         )
     }
@@ -14,8 +15,8 @@ class ChoresContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        state: state.choreReducer.chores,
-        state: state.choreReducer.loading
+        chores: state.choreReducer.chores,
+        loading: state.choreReducer.loading
     }
 }
 
