@@ -6,3 +6,5 @@ const rootReducer = combineReducers({
     categoryReducer,
     choreReducer
 })
+
+export default rootReducer
