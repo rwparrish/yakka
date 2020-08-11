@@ -1,0 +1,1 @@
+Yakka (Australian/New Zeland slang meaning: work, especially of a strenuous physical kind) is an app for tracking chores around the house and rewarding children for completing them.
