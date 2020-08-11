@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Categories from '../components/Categories'
-
+import { getCategories } from '../actions/categories'
 class CategoriesContainer extends Component {
+
+    componentDidMount() {
+        this.props.getCategories()
+    }
 
     handleLoading = () => {
         // console.log(this.props.loading)
@@ -30,4 +34,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(CategoriesContainer)
+export default connect(mapStateToProps, {getCategories} )(CategoriesContainer)
