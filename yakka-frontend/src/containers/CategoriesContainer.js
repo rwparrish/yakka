@@ -1,27 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Categories from '../components/Categories'
+import { Category } from '../components/Category'
 import { getCategories } from '../actions/categories'
+
 class CategoriesContainer extends Component {
 
     componentDidMount() {
         this.props.getCategories()
     }
 
-    // handleLoading = () => {
-    //     // console.log(this.props.loading)
-    //     if(this.props.loading) {
-    //       return <div>Loading...</div>
-    //     } else {
-    //       return <Categories categories={this.props.categories}/>
-    //     }
-    //   }
-
     render() {
+        const categories = this.props.categories.map((cat, i) => 
+            <Category key={i} cat={cat}/>
+                
+            )
         return (
             <div>
-                {/* {this.handleLoading()} */}
-                <Categories categories={this.props.categories}/>
+                <div>{this.props.loading ? <h5>Loading.....</h5> : categories}</div>
             </div>
         )
     }
