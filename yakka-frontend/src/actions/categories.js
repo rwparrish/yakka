@@ -8,3 +8,21 @@ export const getCategories = () => {
             payload: categories}))
     }
 }
+
+export const addCategory = (category) => {
+    return dispatch => {
+        dispatch({type: 'ADDING_CATEGORY'})
+        fetch('/categories', {
+            method: 'POST',
+            body: JSON.stringify(category),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        .then(resp => resp.json())
+        .then(category => dispatch({
+            type: 'CATEGORY_ADDED',
+            payload: category
+        }))
+    }
+}

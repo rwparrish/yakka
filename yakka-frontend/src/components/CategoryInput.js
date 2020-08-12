@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import addCategory from '../actions/categories'
+import { addCategory } from '../actions/categories'
 
 class CategoryInput extends Component {
 
@@ -28,6 +28,7 @@ class CategoryInput extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.state.name} onChange={this.handleChange}/>
+                    <input type="submit"/>
                 </form>
             </div>
         )

@@ -8,20 +8,20 @@ class CategoriesContainer extends Component {
         this.props.getCategories()
     }
 
-    handleLoading = () => {
-        // console.log(this.props.loading)
-        if(this.props.loading) {
-          return <div>Loading...</div>
-        } else {
-          return <Categories categories={this.props.categories}/>
-        }
-      }
+    // handleLoading = () => {
+    //     // console.log(this.props.loading)
+    //     if(this.props.loading) {
+    //       return <div>Loading...</div>
+    //     } else {
+    //       return <Categories categories={this.props.categories}/>
+    //     }
+    //   }
 
     render() {
         return (
             <div>
-                {this.handleLoading()}
-                {/* <Category/> */}
+                {/* {this.handleLoading()} */}
+                <Categories categories={this.props.categories}/>
             </div>
         )
     }
