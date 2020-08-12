@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { addCategory } from '../actions/categories'
 
 class CategoryInput extends Component {
 
@@ -16,8 +14,8 @@ class CategoryInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const category = { name: this.state.name }
-        this.props.addCategory(category)
+        this.props.handleOnSubmit(this.state.name)
+        console.log(this.state.name)
         this.setState({
             name: ''
         })
@@ -34,5 +32,8 @@ class CategoryInput extends Component {
         )
     }
 }
+    
+   
+           
 
-export default connect(null, {addCategory} )(CategoryInput)
+export default CategoryInput

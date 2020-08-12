@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <h2>Create Category</h2>
-        <CategoryInput/>
         <CategoriesContainer/>
       
     </div>

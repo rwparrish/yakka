@@ -1,22 +1,31 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Category } from '../components/Category'
-import { getCategories } from '../actions/categories'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Category } from '../components/Category';
+import { getCategories } from '../actions/categories';
+import CategoryInput from '../components/CategoryInput';
+import { addCategory } from '../actions/categories'
 
 class CategoriesContainer extends Component {
+
+    
+    
+    
 
     componentDidMount() {
         this.props.getCategories()
     }
 
+    handleSubmit = name => {
+        this.props.addCategory({name: name})
+    }
+
     render() {
-        const categories = this.props.categories.map((cat, i) => 
-            <Category key={i} cat={cat}/>
-                
-            )
+        const categories = this.props.categories.map((cat, i) => <Category key={i} cat={cat}/> )
         return (
             <div>
+                <CategoryInput handleOnSubmit={this.handleSubmit} />
                 <div>{this.props.loading ? <h5>Loading.....</h5> : categories}</div>
+                
             </div>
         )
     }
@@ -29,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getCategories} )(CategoriesContainer)
+export default connect(mapStateToProps, { getCategories, addCategory } )(CategoriesContainer)
