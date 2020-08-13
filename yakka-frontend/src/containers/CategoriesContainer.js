@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Category } from '../components/Category';
-import { getCategories } from '../actions/categories';
+import { getCategories, addCategory } from '../actions/categories';
 import CategoryInput from '../components/CategoryInput';
-import { addCategory } from '../actions/categories'
+
 
 class CategoriesContainer extends Component {
 

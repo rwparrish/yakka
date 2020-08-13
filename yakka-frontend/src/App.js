@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import CategoriesContainer from './containers/CategoriesContainer';
-import CategoryInput from './components/CategoryInput';
+import ChoresContainer from './containers/ChoresContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <h2>Create Category</h2>
         <CategoriesContainer/>
-      
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-class CategoryInput extends Component {
+class ChoreInput extends Component {
 
     state = {
-        catergory_id: null,
+        category_id: '',
         name: '',
         description: '',
         reward: null,
@@ -18,14 +18,19 @@ class CategoryInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.handleOnSubmit(this.state.name)
-        console.log(this.state.name)
+        const chore = {
+            category_id: this.state.category_id,
+            name: this.state.name,
+            description: this.state.description,
+            reward: this.state.reward,
+        }
+        this.props.handleOnSubmit(chore)
+        console.log(chore)
         this.setState({
-            catergory_id: null,
+            category_id: '',
             name: '',
             description: '',
-            reward: null,
-            completed: false
+            reward: null
         })
     }
 
@@ -33,13 +38,17 @@ class CategoryInput extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <select name="category_id" value={this.state.catergory_id}>
-                        {this.props.categories.map((cat, i) => <option key={i} value={category.id}>{category.name}</option> )}
-                    </select>
-                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-                    <input type="text_area" name="descripton" value={this.state.description} onChange={this.handleChange}/>
-                    <input type="number" name="reward" value={this.state.reward} onChange={this.handleChange}/>
-                    <input type="checkbox" name="completed" value={this.state.completed} onChange={this.handleChange}/>
+                    <label>Pick a Category:
+                        <select name="category_id" value={this.state.category_id} onChange={this.handleChange} >
+                            {this.props.categories.map((cat, i) => <option key={i} value={cat.id}>{cat.name}</option> )}
+                        </select></label><br/>
+                    <label>Name:
+                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label><br/>
+                    <label>Description:
+                        <input type="text_area" name="description" value={this.state.description} onChange={this.handleChange}/></label><br/>
+                    <label>Reward:
+                        <input type="number" name="reward" value={this.state.reward} onChange={this.handleChange}/></label><br/>
+                    <input type="submit"/>
                 </form>
             </div>
         )
@@ -49,4 +58,4 @@ class CategoryInput extends Component {
    
            
 
-export default CategoryInput
+export default ChoreInput

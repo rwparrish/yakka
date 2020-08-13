@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ChoreInput from '../components/CategoryInput';
+import ChoreInput from '../components/ChoreInput';
 import { getCategories } from '../actions/categories';
-import { getChores } from '../actions/chores'
+import { getChores, addChore } from '../actions/chores'
+import { Chore } from '../components/Chore'
 
 class ChoresContainer extends Component {
 
@@ -11,18 +12,18 @@ class ChoresContainer extends Component {
         this.props.getChores()
     }
 
-    handleSubmit = name => {
-        this.props.addCategory({name: name})
+    handleSubmit = chore => {
+        this.props.addChore(chore)
     }
     
     render() {
         return (
             <div>
-                <ChoreInput handleOnSubmit={this.handleSubmit}/>
-            </div>
-        )
+                <ChoreInput categories={this.props.categories} handleOnSubmit={this.handleSubmit}/>
+            </div>)
     }
 }
+
 
 const mapStateToProps = state => {
     return {
@@ -32,4 +33,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getCategories, getChores })(ChoresContainer)
+export default connect(mapStateToProps, { getCategories, getChores, addChore })(ChoresContainer)

@@ -15,12 +15,12 @@ class ChoresController < ApplicationController
 
   # POST /chores
   def create
-    @chore = Chore.new(chore_params)
+    chore = Chore.new(chore_params)
 
-    if @chore.save
-      render json: @chore
+    if chore.save
+      render json: chore
     else
-      render json: @chore.errors, status: :unprocessable_entity
+      render json: chore.errors, status: :unprocessable_entity
     end
   end
 
