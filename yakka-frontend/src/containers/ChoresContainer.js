@@ -1,13 +1,24 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Chores from '../components/Chores'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import ChoreInput from '../components/CategoryInput';
+import { getCategories } from '../actions/categories';
+import { getChores } from '../actions/chores'
 
 class ChoresContainer extends Component {
+
+    componentDidMount() {
+        this.props.getCategories()
+        this.props.getChores()
+    }
+
+    handleSubmit = name => {
+        this.props.addCategory({name: name})
+    }
     
     render() {
         return (
             <div>
-                <Chores chores={this.props.chores}/>
+                <ChoreInput handleOnSubmit={this.handleSubmit}/>
             </div>
         )
     }
@@ -15,9 +26,10 @@ class ChoresContainer extends Component {
 
 const mapStateToProps = state => {
     return {
+        categories: state.categoryReducer.categories,
         chores: state.choreReducer.chores,
         loading: state.choreReducer.loading
     }
 }
 
-export default connect(mapStateToProps)(ChoresContainer)
+export default connect(mapStateToProps, { getCategories, getChores })(ChoresContainer)

@@ -8,9 +8,6 @@ import { addCategory } from '../actions/categories'
 class CategoriesContainer extends Component {
 
     
-    
-    
-
     componentDidMount() {
         this.props.getCategories()
     }
