@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class CategoryChoresContainer extends Component {
 
     render() {
-        // {props.cat.chores.map((chore, i) => <Chore key={i} chore={chore}/> )}
+        const cat = this.props.categories.find(cat => cat.id == this.props.match.params.id)
+        const catChores = cat.chores.map((chore, i) => <Chore key={i} chore={chore}/> )
         return (
             <div>
-                List of chores assosiated with a category
+                {cat.name}
+                {catChores}
             </div>
         )
     }
 }
-export default CategoryChoresContainer
+
+    const mapStateToProps = state => {
+        debugger
+        return { categories: state.categoryReducer.categories }
+    }
+
+export default connect(mapStateToProps)(CategoryChoresContainer)
