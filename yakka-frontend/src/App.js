@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <h2>Create Category</h2>
         <CategoriesContainer/>
+        <ChoresContainer/>
     </div>
   );
 }

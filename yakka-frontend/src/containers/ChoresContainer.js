@@ -15,6 +15,8 @@ class ChoresContainer extends Component {
     handleSubmit = chore => {
         this.props.addChore(chore)
     }
+
+    
     
     render() {
         return (

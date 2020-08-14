@@ -6,7 +6,7 @@
       <div className="card" >
           <div className="card-body">
             <h5 className="card-title">{props.cat.name}</h5>
-            <p className="card-text"> {props.cat.chores.map((chore, i) => <Chore key={i} chore={chore}/> )} </p>
+            <p className="card-text"> </p>
           </div>
       </div>
 
