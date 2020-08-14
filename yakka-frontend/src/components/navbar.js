@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">Yakka</Navbar.Brand>
+      <Navbar.Brand href="/">Yakka - Teach you kids the value of hard work and it's reward</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
