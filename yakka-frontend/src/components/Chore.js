@@ -1,24 +1,16 @@
 import React from 'react'
     
-   export const Chore = ({chore}) => {
-     const handleChange = event => {
-       
-     }
+   export const Chore = props => {
      return (
         <div className="card" >
             <div className="card-body">
-              <h6 className="card-title">{chore.name}</h6>
+              <h6 className="card-title">{props.chore.name}</h6>
               <ul>
-                {chore.description}
+                {props.chore.description}
+                {props.chore.reward}
               </ul>
-              <ul>
-                {chore.reward}
-              </ul>
-              
-                <input type="checkbox" name="completed" value={chore.completed} onChange={handleChange}/>
-            
-                
-            </div>
+              <button id={props.chore.id} onClick={props.handleClick}>Delete this chore</button>
+           </div>
         </div>
      )
    }

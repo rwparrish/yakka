@@ -26,3 +26,18 @@ export const addChore = (chore) => {
         }))
     }
 }
+
+export const deleteChore = (id) => {
+    return dispatch => {
+        dispatch({type: 'DELETING_CHORE'})
+        fetch(`/chores/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        .then(() => dispatch({
+            type: 'CHORE_DELETED', 
+            payload: id}))
+    }
+}

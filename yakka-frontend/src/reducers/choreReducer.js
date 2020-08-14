@@ -22,6 +22,17 @@ export default (state = { chores: [], loading: false }, action) => {
                 chores: [...state.chores, action.payload],
                 loading: false
             }
+            case 'DELETING_CHORE':
+            return {
+                ...state, 
+                loading: true
+            }
+        case 'CHORE_DELETED':
+            return {
+                ...state,
+                chores: [...state.chores.filter(chore => `${chore.id}` !== action.payload)],
+                loading: false
+            }
         default:
             return state
     }
