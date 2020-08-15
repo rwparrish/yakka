@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
-import CategoriesContainer from './containers/CategoriesContainer';
-import ChoresContainer from './containers/ChoresContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
-import CategoriesContainer from './containers/CategoriesContainer';
 import CategoryChoresContainer from './containers/CategoryChoresContainer';
-import ChoresContainer from './containers/ChoresContainer';
 import NavBar from './components/NavBar'
 import { getCategories } from './actions/categories'
 import { getChores, addChore } from './actions/chores'
 import Home from './components/Home'
+import CategoriesContainer from './containers/CategoriesContainer';
+import ChoreInput from './components/ChoreInput'
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getCategories()
+    this.props.getChores()
+  }
 
   render() {
     return (
@@ -32,7 +36,7 @@ class App extends Component {
 }
 
   const mapStateToProps = state => {
-    return { categories: state.categoriesReducer.categories }
+    return { categories: state.categoryReducer.categories }
   }
 
 export default connect(mapStateToProps, { getCategories, addChore, getChores })(App)
