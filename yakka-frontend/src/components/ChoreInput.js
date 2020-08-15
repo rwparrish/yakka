@@ -24,15 +24,22 @@ class ChoreInput extends Component {
             description: this.state.description,
             reward: this.state.reward,
         }
-        this.props.handleOnSubmit(chore)
-        console.log(chore)
+        this.props.addChore(chore)
+        const category_id = this.state.category_id
         this.setState({
             category_id: '',
             name: '',
             description: '',
             reward: null
         })
+        this.props.history.push(`/categories/${category_id}`)
     }
+
+    // handleSelectChange = event => {
+    //     this.setState ({
+    //         genre_id: parseInt(event.target.options[event.target.selectedIndex].value)
+    //     })
+    // }
 
     render() {
         return (
@@ -55,7 +62,4 @@ class ChoreInput extends Component {
     }
 }
     
-   
-           
-
 export default ChoreInput
