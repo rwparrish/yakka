@@ -9,24 +9,12 @@ import rootReducer from './reducers/index';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import CategoriesContainer from './containers/CategoriesContainer';
-import CategoryChoresContainer from './containers/CategoryChoresContainer';
-import ChoresContainer from './containers/ChoresContainer';
-import NavBar from './components/NavBar'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
-    <NavBar/>
-      <Router>
-        <>
-          <Route exact path='/' component={App}/>
-          <Route exact path='/categories' component={CategoriesContainer}/>
-          <Route exact path='/chores/new' component={ChoresContainer}/>
-          <Route path='/categories/:id' component={CategoryChoresContainer}/>
-        </>
-      </Router>
+    <App/>
   </Provider>,
   document.getElementById('root')
 );
