@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 class CategoryInput extends Component {
 
     state = {
@@ -35,7 +34,4 @@ class CategoryInput extends Component {
     }
 }
     
-   
-           
-
 export default CategoryInput

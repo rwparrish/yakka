@@ -10,7 +10,6 @@ import { getChores, addChore } from './actions/chores'
 import Home from './components/Home'
 import CategoriesContainer from './containers/CategoriesContainer';
 import ChoreInput from './components/ChoreInput'
-
 class App extends Component {
 
   componentDidMount() {

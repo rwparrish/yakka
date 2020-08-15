@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Chore } from '../components/Chore'
 import { deleteChore } from '../actions/chores'
 import { getCategories } from '../actions/categories'
-import { Category } from '../components/Category'
 
 class CategoryChoresContainer extends Component {
 
