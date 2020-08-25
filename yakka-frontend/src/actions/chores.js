@@ -1,3 +1,5 @@
+// export a functions that return the desired action
+
 export const getChores = () => {
     return dispatch => {
         dispatch({type: 'LOADING_CHORES'})
